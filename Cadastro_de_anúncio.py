@@ -132,6 +132,7 @@ for anuncio in anuncios:
     n_de_pessoas_3 = n_de_pessoas_visu(n_de_pessoas_2)
     n_de_pessoas_4 = n_de_pessoas_visu(n_de_pessoas_3)
     n_máximo_de_pessoas = int(n_de_pessoas) + n_de_pessoas_2 + n_de_pessoas_3 + n_de_pessoas_4
+
     # Faz o processo de contas para pegar o numero máximo de clicks e guarda numa variável.
     n_maximo_de_clicks = int(n_de_pessoas * 12 / 100) + int(n_de_pessoas_2 * 12 / 100)
     n_maximo_de_clicks += int(n_de_pessoas_3 * 12 / 100)
