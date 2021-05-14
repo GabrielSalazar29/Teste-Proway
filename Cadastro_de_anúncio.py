@@ -1,8 +1,8 @@
 def dias_do_mes(a):
     """
-    Uma função para retornar o valor de dias do mes correspondente.
-    :param a: variavel que possui o valor do mes que queremos saber os dias.
-    :return: retorna o numero de dias do mes correspondente.
+     Uma função para retornar o valor de dias do mês correspondente.
+    :param a: variável que possui o valor do mês que queremos saber os dias.
+    :return: retorna o número de dias do mês correspondente.
     """
     if a == 2:
         return 28
@@ -15,10 +15,10 @@ def dias_do_mes(a):
 def n_de_pessoas_visu(a):
     """
     Uma função que recebe um valor inicial de pessoas e calcula quantos clicks,
-    compartilhamentos e numero de pessoas que irão visualizar a partir desses
+    compartilhamentos e número de pessoas que irão visualizar a partir desses
     compartilhamentos.
-    :param a: variavel que possui o valor de pessoas que queremos analizar.
-    :return: retorna o valor de pessoas que terão acesso ao anuncio a partir do compartilhamento.
+    :param a: variável que possui o valor de pessoas que queremos analisar.
+    :return: retorna o valor de pessoas que terão acesso ao anúncio a partir do compartilhamento.
     """
     n_de_clicks = a * 12 / 100
     n_de_compartilhamentos = int(n_de_clicks) * 3 / 20
@@ -39,14 +39,14 @@ informações = []
 while True:
     print("-=" * 50)
 
-    # Adiciona as informações ao dicionario.
+    # Adiciona as informações ao dicionário.
     dicionario["Anuncio:"] = str(input("Informe o nome do anúncio que deseja cadastrar: ")).strip().capitalize()
     dicionario["Cliente:"] = str(input("Informe o nome do cliente: ")).strip().capitalize()
     dicionario["data_in:"] = str(input("Informe a data de início do anúncio [dia/mes/ano]: ")).strip().split("/")
     dicionario["data_fim:"] = str(input("Informe a data de término do anúncio [dia/mes/ano]: ")).strip().split("/")
     dicionario["investimento:"] = float(input("Informe o investimento por dia: "))
 
-    # Adiciona uma copia do dicionário a lista criada no inicio do codigo.
+    # Adiciona uma cópia do dicionário a lista criada no início do código.
     anuncios.append(dicionario.copy())
 
     # Limpa o dicionário.
@@ -67,7 +67,7 @@ while True:
     if resposta == "N":
         break
 
-    # Mostra na tela a parte superior da com a cor azul tabela.
+    # Mostra na tela a parte superior da tabela com a cor azul.
 print("\033[34m-=\033[m" * 80)
 print(f"{'Anuncios':<14}\033[34m{'/':<2}\033[m{'Valor Total Investido':<25}\033[34m{'/':<2}\033[m"
       f"{'Quantidade Máx de Visualizações':<40}", end='')
@@ -75,7 +75,7 @@ print(f"\033[34m{'/':<2}\033[m{'Quantidade Máx de Cliques':<35}\033[34m{'/':<2}
       f"{'Quantidade Máx de Compartilhamentos':<20}")
 print("\033[34m-=\033[m" * 80)
 
-# Estrutura de repetição para pegar todos os valores digitados e coloca cada um em uma variavel.
+# Estrutura de repetição para pegar todos os valores digitados e colocar cada um em uma variável.
 for anuncio in anuncios:
     for c in anuncio:
         if c == "data_in:":
@@ -93,11 +93,11 @@ for anuncio in anuncios:
         else:
             investimento = anuncio[c]
 
-    # Coloca a diferença entre o meses e anos de incio e fim do anúncio dentro de variáveis.
+    # Coloca a diferença entre os meses e anos, de início e fim do anúncio, dentro de variáveis.
     meses = mes_fim - mes_in
     anos = ano_fim - ano_in
 
-    # Estrutura de condição para contar os dias entre a data de inicio e fim.
+    # Estrutura de condição para contar os dias entre a data de início e fim.
     if anos == 0:
         if meses == 0:
             dias_totais = 1 + (data_fim - data_in)
@@ -126,19 +126,19 @@ for anuncio in anuncios:
         dias_totais += (anos - 1) * 365
     valor_total = dias_totais * investimento
 
-    # Faz o processo de contas para pegar o numero máximo de pessoas que verão o anúncio e guardar numa variável.
+    # Faz o processo de contas para pegar o número máximo de pessoas que verão o anúncio e guardar numa variável.
     n_de_pessoas = investimento * 30
     n_de_pessoas_2 = n_de_pessoas_visu(n_de_pessoas)
     n_de_pessoas_3 = n_de_pessoas_visu(n_de_pessoas_2)
     n_de_pessoas_4 = n_de_pessoas_visu(n_de_pessoas_3)
     n_máximo_de_pessoas = int(n_de_pessoas) + n_de_pessoas_2 + n_de_pessoas_3 + n_de_pessoas_4
 
-    # Faz o processo de contas para pegar o numero máximo de clicks e guarda numa variável.
+    # Faz o processo de contas para pegar o número máximo de clicks e guarda numa variável.
     n_maximo_de_clicks = int(n_de_pessoas * 12 / 100) + int(n_de_pessoas_2 * 12 / 100)
     n_maximo_de_clicks += int(n_de_pessoas_3 * 12 / 100)
     n_maximo_de_clicks += int(n_de_pessoas_4 * 12 / 100)
 
-    # Faz o processo de contas para pegar o numero máximo de compartilhamentos e guarda numa variável.
+    # Faz o processo de contas para pegar o número máximo de compartilhamentos e guarda numa variável.
     n_maximo_de_compartilhamentos = int(int(n_de_pessoas * 12 / 100) * 3 / 20)
     n_maximo_de_compartilhamentos += int(int(n_de_pessoas_2 * 12 / 100) * 3 / 20)
     n_maximo_de_compartilhamentos += int(int(n_de_pessoas_3 * 12 / 100) * 3 / 20)
@@ -158,7 +158,7 @@ for anuncio in anuncios:
     print(f"\033[34m{'/':<2}\033[m{n_maximo_de_compartilhamentos * dias_totais:<20}")
 print("\033[34m-=\033[m" * 80)
 
-# Inicia um laço de repetição que para quando a resposta é "N".
+# Inicia um laço de repetição que para quando a resposta for N.
 while True:
 
     # Faz uma pergunta para filtrar a tabela ou encerrar o programa.
@@ -171,18 +171,18 @@ while True:
         else:
             break
 
-    # Se a resposta for "S" inicia o processo para selecionar o anúncio que o usuário deseja.
+    # Se a resposta for S inicia o processo para selecionar o anúncio que o usuário deseja.
     if resp == "S":
 
         # Atribui um valor -1 a variável.
         pedido = -1
 
-        # Pede para o usuário digitar o nome e a data do anúncio q deseja ver e guarda em variáveis.
+        # Pede para o usuário digitar o nome e a data do anúncio que deseja ver e guarda em variáveis.
         nome = str(input("Informe o nome do cliente que deseja ver as informações do anúncio: ")).strip().capitalize()
         data_in = str(input("Informe a data de início do anúncio [dia/mes/ano]: ")).strip().split("/")
         data_fim = str(input("Informe a data de término do anúncio [dia/mes/ano]: ")).strip().split("/")
 
-        # Estrutura de repetição para pegar a posição da lista que contêm o anúncio escolhido e coloca numa variável.
+        # Estrutura de repetição para pegar a posição da lista que contém o anúncio escolhido e colocar numa variável.
         for anuncio in anuncios:
             if anuncio["Cliente:"] == nome and anuncio["data_in:"] == data_in and anuncio["data_fim:"] == data_fim:
                 pedido = anuncios.index(anuncio)
@@ -214,7 +214,7 @@ while True:
             print("\033[31m++"*13)
             print(" Informações inválidas!!!")
             print("++"*13, "\033[m")
-    # Encerra o loop caso o usuário digite "N".
+    # Encerra o loop caso o usuário digite N.
     else:
         break
 
